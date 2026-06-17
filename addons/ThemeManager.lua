@@ -42,6 +42,7 @@ local ThemeManager = {} do
 		['Balti'] 			= { 32, httpService:JSONDecode('{"FontColor":"f2f2ff","MainColor":"1a1826","AccentColor":"7a5cff","BackgroundColor":"0f0d18","OutlineColor":"332f4d"}') },
 		['Groovy'] 			= { 33, httpService:JSONDecode('{"FontColor":"f8ffff","MainColor":"1a2a24","AccentColor":"00d98b","BackgroundColor":"101914","OutlineColor":"2f4a3d"}') },
 		['Sonic'] 			= { 34, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"10203a","AccentColor":"008cff","BackgroundColor":"09111f","OutlineColor":"245a9c"}') },
+		['Soviet Spyware'] 	= { 35, httpService:JSONDecode('{"FontColor":"ffd9d9","MainColor":"2b1111","AccentColor":"cc0000","BackgroundColor":"140808","OutlineColor":"5a1f1f"}') },
 	}
 
 	function ThemeManager:ApplyTheme(theme)
