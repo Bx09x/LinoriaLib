@@ -8,7 +8,7 @@ local ThemeManager = {} do
 	ThemeManager.DefaultTheme = "Default"
 	
 	ThemeManager.BuiltInThemes = {
-		['Default'] 		= { 1, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"1c1c1c","AccentColor":"0055ff","BackgroundColor":"141414","OutlineColor":"323232"}') },=
+		['Default'] 		= { 1, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"1c1c1c","AccentColor":"0055ff","BackgroundColor":"141414","OutlineColor":"323232"}') },
 		['Sunset Neon'] 	= { 2, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"221a2e","AccentColor":"ff7a18","BackgroundColor":"120b1a","OutlineColor":"3a2a4a"}') },
 		['Gold Prestige'] 	= { 3, httpService:JSONDecode('{"FontColor":"f5f0e6","MainColor":"2a2418","AccentColor":"d4af37","BackgroundColor":"14110b","OutlineColor":"3b3426"}') },
 		['Paper Light'] 	= { 4, httpService:JSONDecode('{"FontColor":"000000","MainColor":"f8f8f8","AccentColor":"3b82f6","BackgroundColor":"f2f2f2","OutlineColor":"d0d0d0"}') },
