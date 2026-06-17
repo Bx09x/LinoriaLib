@@ -39,6 +39,9 @@ local ThemeManager = {} do
     	['Neon Synthwave'] 	= { 29, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"1f0f2b","AccentColor":"ff00ff","BackgroundColor":"14071f","OutlineColor":"6b1e8c"}') },
     	['Emerald Core'] 	= { 30, httpService:JSONDecode('{"FontColor":"e6ffe6","MainColor":"0f211a","AccentColor":"00cc7a","BackgroundColor":"0a1a14","OutlineColor":"1f3f33"}') },
     	['Obsidian'] 		= { 31, httpService:JSONDecode('{"FontColor":"e8e8e8","MainColor":"0f0f0f","AccentColor":"666666","BackgroundColor":"080808","OutlineColor":"1f1f1f"}') },
+		['Balti'] 			= { 32, httpService:JSONDecode('{"FontColor":"f2f2ff","MainColor":"1a1826","AccentColor":"7a5cff","BackgroundColor":"0f0d18","OutlineColor":"332f4d"}') },
+		['Groovy'] 			= { 33, httpService:JSONDecode('{"FontColor":"f8ffff","MainColor":"1a2a24","AccentColor":"00d98b","BackgroundColor":"101914","OutlineColor":"2f4a3d"}') },
+		['Sonic'] 			= { 34, httpService:JSONDecode('{"FontColor":"ffffff","MainColor":"10203a","AccentColor":"008cff","BackgroundColor":"09111f","OutlineColor":"245a9c"}') },
 	}
 
 	function ThemeManager:ApplyTheme(theme)
