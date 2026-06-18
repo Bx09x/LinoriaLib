@@ -533,6 +533,51 @@ do
             Parent = CursorOuter;
         })
 
+        local isRainbowMode = false
+        local rainbowConnection
+        local currentHue = 0
+
+        local RainbowToggle = Library:Create('TextButton', {
+            Size = UDim2.new(0, 25, 0, 14);
+            Position = UDim2.new(0, 2, 0, 2);
+            BackgroundColor3 = Library.MainColor;
+            BorderColor3 = Library.OutlineColor;
+            BorderMode = Enum.BorderMode.Inset;
+            Text = "AUTO";
+            TextSize = 10;
+            TextColor3 = Library.FontColor;
+            Font = Library.Font;
+            ZIndex = 25;
+            Parent = SatVibMapOuter;
+        })
+
+        Library:AddToRegistry(RainbowToggle, {
+            BackgroundColor3 = 'MainColor';
+            BorderColor3 = 'OutlineColor';
+            TextColor3 = 'FontColor';
+        })
+
+        RainbowToggle.MouseButton1Click:Connect(function()
+        isRainbowMode = not isRainbowMode
+        RainbowToggle.Text = isRainbowMode and "STOP" or "AUTO"
+        RainbowToggle.BackgroundColor3 = isRainbowMode and Library.AccentColor or Library.MainColor
+        Library.RegistryMap[RainbowToggle].Properties.BackgroundColor3 = isRainbowMode and 'AccentColor' or 'MainColor'
+
+            if isRainbowMode then
+                rainbowConnection = RenderStepped:Connect(function()
+                    currentHue = currentHue + 0.005
+                    if currentHue > 1 then currentHue = 0 end
+                    ColorPicker.Hue = currentHue
+                    ColorPicker:Display()
+                end)
+            else
+                if rainbowConnection then
+                    rainbowConnection:Disconnect()
+                    rainbowConnection = nil
+                end
+            end
+        end)
+
         local HueSelectorOuter = Library:Create('Frame', {
             BorderColor3 = Color3.new(0, 0, 0);
             Position = UDim2.new(0, 208, 0, 25);
@@ -879,8 +924,17 @@ do
         end;
 
         function ColorPicker:Hide()
-            PickerFrameOuter.Visible = false;
-            Library.OpenedFrames[PickerFrameOuter] = nil;
+            PickerFrameOuter.Visible = false
+            Library.OpenedFrames[PickerFrameOuter] = nil
+            -- stop rainbow when closed
+            if isRainbowMode and rainbowConnection then
+                rainbowConnection:Disconnect()
+                rainbowConnection = nil
+                isRainbowMode = false
+                RainbowToggle.Text = "AUTO"
+                RainbowToggle.BackgroundColor3 = Library.MainColor
+                Library.RegistryMap[RainbowToggle].Properties.BackgroundColor3 = 'MainColor'
+            end
         end;
 
         function ColorPicker:SetValue(HSV, Transparency)
